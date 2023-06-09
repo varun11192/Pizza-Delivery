@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7D49E"
+    >
+
+    <ScrollView
+        android:id="@+id/scroolView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="110dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/user_update_constr_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".activities.UpdateUserInfoActivity"
+            app:layout_constraintBottom_toBottomOf="@id/scroolView"
+            >
+
+            <TextView
+                android:id="@+id/personalInfoTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Personal Information"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/fullNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:textColor="@color/black"
+                android:layout_marginTop="32dp"
+                app:layout_constraintLeft_toLeftOf="@id/personalInfoTitle"
+                app:layout_constraintTop_toBottomOf="@id/personalInfoTitle"
+                />
+
+            <EditText
+                android:id="@+id/full_name_et"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:backgroundTint="#FBEFE4"
+                android:background="@drawable/circular_grey_bordersolid"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
+                app:layout_constraintTop_toBottomOf="@id/fullNameTitle"
+                />
+
+            <TextView
+                android:id="@+id/mobileTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobile Number"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"
+                app:layout_constraintLeft_toLeftOf="@id/personalInfoTitle"
+                app:layout_constraintTop_toBottomOf="@id/full_name_et"
+                />
+
+            <EditText
+                android:id="@+id/mobile_et"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:backgroundTint="#FBEFE4"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:background="@drawable/circular_grey_bordersolid"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/mobileTitle"
+                app:layout_constraintTop_toBottomOf="@id/mobileTitle"
+                />
+
+            <TextView
+                android:id="@+id/newPassTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/black"
+                app:layout_constraintLeft_toLeftOf="@id/personalInfoTitle"
+                app:layout_constraintTop_toBottomOf="@id/mobile_et"
+                />
+
+            <EditText
+                android:id="@+id/new_pass_et"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:inputType="textPassword"
+                android:backgroundTint="#FBEFE4"
+                android:textAlignment="center"
+                android:background="@drawable/circular_grey_bordersolid"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
+                app:layout_constraintTop_toBottomOf="@id/newPassTitle"
+                />
+
+            <TextView
+                android:id="@+id/confNewPassTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery Address"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/black"
+                app:layout_constraintLeft_toLeftOf="@id/personalInfoTitle"
+                app:layout_constraintTop_toBottomOf="@id/new_pass_et"
+                />
+
+            <EditText
+                android:id="@+id/cnf_new_pass_et"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:inputType="textPassword"
+                android:backgroundTint="#FBEFE4"
+                android:textAlignment="center"
+                android:background="@drawable/circular_grey_bordersolid"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/fullNameTitle"
+                app:layout_constraintTop_toBottomOf="@id/confNewPassTitle"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/updateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:textColor="@color/white"
+        android:backgroundTint="#E81514"
+        app:layout_constraintTop_toBottomOf="@id/scroolView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

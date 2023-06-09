@@ -5,4 +5,12 @@
     <string name="choose">Choose</string>
     <string name="upload">Upload</string>
     <string name="set_photo">set photo</string>
+    <string name="job_success">Job Success</string>
+    <string name="ui_ux_designer">UI/UX Designer</string>
+    <string name="my_desc">Pizza Eater</string>
+    <string name="about_me">My Name</string>
+    <string name="contact">My Contact</string>
+    <string name="skills">Skills</string>
+    <string name="ratings">Star Ratings</string>
+    <string name="samplereview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium bibendum sapien, ut euismod massa. Duis convallis sem sed turpis elementum auctor.</string>
 </resources>
