@@ -17,8 +17,9 @@
         android:theme="@style/Theme.Wapp"
         tools:targetApi="31">
         <activity
-            android:name=".Dispatcher"
+            android:name=".ProfileActivity"
             android:exported="false" />
+
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
