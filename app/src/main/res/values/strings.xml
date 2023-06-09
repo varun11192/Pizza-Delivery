@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">wapp</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="done">done</string>
+    <string name="choose">Choose</string>
+    <string name="upload">Upload</string>
+    <string name="set_photo">set photo</string>
+</resources>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "801267378077",
+    "project_id": "wapp-354db",
+    "storage_bucket": "wapp-354db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801267378077:android:56fec33cd9f795a91a3174",
+        "android_client_info": {
+          "package_name": "com.example.wapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801267378077-15f4l7kobcrb3fi915un10ivd2v6orqa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wapp",
+            "certificate_hash": "8e5d5c82de23340d4d04d0539b8986a8cb2e8467"
+          }
+        },
+        {
+          "client_id": "801267378077-joga4n7u57fqp1u05ft7rqu5rhnpvorn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-0OYH8LzBv8xHZ1UBqcSSxsmWHGTeoOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801267378077-joga4n7u57fqp1u05ft7rqu5rhnpvorn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
