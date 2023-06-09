@@ -12,20 +12,22 @@ import androidx.annotation.LayoutRes;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 
-import com.yarolegovich.slidingrootnav.callback.DragListener;
-import com.yarolegovich.slidingrootnav.callback.DragStateListener;
-import com.yarolegovich.slidingrootnav.transform.CompositeTransformation;
-import com.yarolegovich.slidingrootnav.transform.ElevationTransformation;
-import com.yarolegovich.slidingrootnav.transform.RootTransformation;
-import com.yarolegovich.slidingrootnav.transform.ScaleTransformation;
-import com.yarolegovich.slidingrootnav.transform.YTranslationTransformation;
-import com.yarolegovich.slidingrootnav.util.ActionBarToggleAdapter;
-import com.yarolegovich.slidingrootnav.util.DrawerListenerAdapter;
-import com.yarolegovich.slidingrootnav.util.HiddenMenuClickConsumer;
+import com.example.wapp.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import slidingrootnav.callback.DragListener;
+import slidingrootnav.callback.DragStateListener;
+import slidingrootnav.transform.CompositeTransformation;
+import slidingrootnav.transform.ElevationTransformation;
+import slidingrootnav.transform.RootTransformation;
+import slidingrootnav.transform.ScaleTransformation;
+import slidingrootnav.transform.YTranslationTransformation;
+import slidingrootnav.util.ActionBarToggleAdapter;
+import slidingrootnav.util.DrawerListenerAdapter;
+import slidingrootnav.util.HiddenMenuClickConsumer;
 
 /**
  * Created by yarolegovich on 24.03.2017.

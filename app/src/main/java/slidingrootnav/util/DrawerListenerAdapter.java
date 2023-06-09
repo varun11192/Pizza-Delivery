@@ -4,8 +4,9 @@ import android.view.View;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.yarolegovich.slidingrootnav.callback.DragListener;
-import com.yarolegovich.slidingrootnav.callback.DragStateListener;
+
+import slidingrootnav.callback.DragListener;
+import slidingrootnav.callback.DragStateListener;
 
 /**
  * Created by yarolegovich on 26.03.2017.

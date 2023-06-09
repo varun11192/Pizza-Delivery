@@ -5,7 +5,8 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.yarolegovich.slidingrootnav.SlidingRootNavLayout;
+
+import slidingrootnav.SlidingRootNavLayout;
 
 /**
  * Created by yarolegovich on 26.03.2017.

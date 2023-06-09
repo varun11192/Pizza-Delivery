@@ -4,7 +4,8 @@ import android.content.Context;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.yarolegovich.slidingrootnav.SlidingRootNavLayout;
+
+import slidingrootnav.SlidingRootNavLayout;
 
 /**
  * Created by yarolegovich on 26.03.2017.

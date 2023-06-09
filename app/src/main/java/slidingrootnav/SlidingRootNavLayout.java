@@ -14,12 +14,13 @@ import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
-import com.yarolegovich.slidingrootnav.callback.DragListener;
-import com.yarolegovich.slidingrootnav.callback.DragStateListener;
-import com.yarolegovich.slidingrootnav.transform.RootTransformation;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import slidingrootnav.callback.DragListener;
+import slidingrootnav.callback.DragStateListener;
+import slidingrootnav.transform.RootTransformation;
 
 /**
  * Created by yarolegovich on 24.03.2017.
