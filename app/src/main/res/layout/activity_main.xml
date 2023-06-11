@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7D49E"
-    tools:context=".MainActivity"
+    tools:context=".AuthenticationActivity"
     >
 
     <!--Edittext for getting users phone number-->
