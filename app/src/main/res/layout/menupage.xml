@@ -12,8 +12,7 @@
         app:cardCornerRadius="32dp"
         android:layout_height="200dp"
         android:elevation="10dp"
-        android:layout_margin="32dp"
-        android:corner_radius="16dp">
+        android:layout_margin="32dp">
 
         <ImageView
             android:id="@+id/posterImageView"
@@ -45,8 +44,8 @@
 
             <Switch
                 android:id="@+id/vegSwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                    android:textOff=""
                 android:textOn="" />
 
@@ -68,8 +67,8 @@
 
             <Switch
                 android:id="@+id/nonVegSwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:textOff=""
                 android:textOn="" />
 
@@ -88,12 +87,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/foodRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="316dp"
         android:layout_below="@id/switchesContainer"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="214dp"
-        android:background="@drawable/rounded_background"
+        android:layout_marginBottom="76dp"
         android:clipToPadding="false"
         android:padding="8dp" />
 

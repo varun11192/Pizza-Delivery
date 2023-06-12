@@ -65,7 +65,7 @@ public class AuthenticationActivity extends AppCompatActivity {
 
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            Intent i = new Intent(AuthenticationActivity.this, SampleActivity.class);
+            Intent i = new Intent(AuthenticationActivity.this, HomeActivity.class);
 
             startActivity(i);
             // go to main page
@@ -123,7 +123,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                     // method to verify the OTP.
                     verifyCode(edtOTP.getText().toString());
                 }
-                Intent intent = new Intent(AuthenticationActivity.this, SampleActivity.class);
+                Intent intent = new Intent(AuthenticationActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
