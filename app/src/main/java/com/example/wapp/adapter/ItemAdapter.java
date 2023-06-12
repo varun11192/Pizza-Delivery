@@ -1,5 +1,7 @@
 package com.example.wapp.adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.squareup.picasso.Picasso;
+
 import com.example.wapp.R;
-import com.example.wapp.adapter.Item;
 
 import java.util.List;
 
@@ -21,8 +22,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         this.itemList = itemList;
     }
 
-    // ... other methods of the ItemAdapter
-
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,15 +30,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
 
     @Override
-    public void onBindViewHolder(ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         Item item = itemList.get(position);
 
         holder.itemNameTextView.setText(item.getName());
         holder.itemPriceTextView.setText(String.valueOf(item.getPrice()));
-        holder.itemQuantityTextView.setText(String.valueOf(item.getQuantity()));
 
-        // Load the item image using a library like Picasso or Glide
-        Picasso.get().load(item.getImageUrl()).into(holder.itemImageView);
+        // Set the item image from the byte array
+        if (item.getImageBytes() != null) {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(item.getImageBytes(), 0, item.getImageBytes().length);
+            holder.itemImageView.setImageBitmap(bitmap);
+        }
     }
 
     @Override
@@ -47,34 +48,21 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return itemList.size();
     }
 
-    public void set(List<Item> itemList) {
+    public void setItemList(List<Item> itemList) {
         this.itemList = itemList;
         notifyDataSetChanged();
     }
 
-    public List<Item> get() {
-        return itemList;
-    }
-
-    public void setItems(List<Item> itemList) {
-        this.itemList = itemList;
-        notifyDataSetChanged();
-    }
-
-    // ... other methods and ViewHolder definition
-
-    public class ItemViewHolder extends RecyclerView.ViewHolder {
+    public static class ItemViewHolder extends RecyclerView.ViewHolder {
         ImageView itemImageView;
         TextView itemNameTextView;
         TextView itemPriceTextView;
-        TextView itemQuantityTextView;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             itemImageView = itemView.findViewById(R.id.itemImageView);
             itemNameTextView = itemView.findViewById(R.id.itemNameTextView);
             itemPriceTextView = itemView.findViewById(R.id.itemPriceTextView);
-            itemQuantityTextView = itemView.findViewById(R.id.itemQuantityTextView);
         }
     }
 }

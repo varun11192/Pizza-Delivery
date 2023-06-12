@@ -4,13 +4,13 @@ public class Item {
     private String name;
     private double price;
     private int quantity;
-    private String imageUrl;
+    private byte[] imageBytes;
 
-    public Item(String name, double price, int quantity, String imageUrl) {
+    public Item(String name, double price, int quantity, byte[] imageBytes) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        this.imageUrl = imageUrl;
+        this.imageBytes = imageBytes;
     }
 
     public String getName() {
@@ -37,12 +37,11 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public byte[] getImageBytes() {
+        return imageBytes;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageBytes(byte[] imageBytes) {
+        this.imageBytes = imageBytes;
     }
 }
-
