@@ -2,9 +2,9 @@
 <resources>
 
     <string-array name="ld_activityScreenTitles">
-        <item>Dashboard</item>
-        <item>My Account</item>
-        <item>Messages</item>
+        <item>My Profile</item>
+        <item>My Orders</item>
+        <item>Discover</item>
         <item>Cart</item>
         <item />
         <item>Log Out</item>
