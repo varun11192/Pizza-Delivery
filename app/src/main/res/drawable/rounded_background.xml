@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#ffffff" /> <!-- Replace with your desired background color -->
+    <corners
+        android:topLeftRadius="48dp"
+    android:topRightRadius="48dp"
+    android:bottomLeftRadius="48dp"
+    android:bottomRightRadius="48dp" />
+</shape>

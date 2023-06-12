@@ -54,7 +54,7 @@ Button button;
         ColorDrawable colorDrawable
                 = new ColorDrawable(
                 Color.parseColor("#0F9D58"));
-        actionBar.setBackgroundDrawable(colorDrawable);
+       // actionBar.setBackgroundDrawable(colorDrawable);
 
         // initialise views
 

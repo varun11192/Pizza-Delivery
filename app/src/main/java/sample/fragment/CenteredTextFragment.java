@@ -38,7 +38,7 @@ public class CenteredTextFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         Bundle args = getArguments();
-        final String text = args != null ? args.getString(EXTRA_TEXT) : "";
+        final String text = args != null ? args.getString(EXTRA_TEXT) : "hello world";
         TextView textView = view.findViewById(R.id.text);
         textView.setText(text);
         textView.setOnClickListener(new View.OnClickListener() {

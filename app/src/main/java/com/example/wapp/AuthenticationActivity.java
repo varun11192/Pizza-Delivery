@@ -65,7 +65,7 @@ public class AuthenticationActivity extends AppCompatActivity {
 
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            Intent i = new Intent(AuthenticationActivity.this, HomeActivity.class);
+            Intent i = new Intent(AuthenticationActivity.this, SampleActivity.class);
 
             startActivity(i);
             // go to main page
