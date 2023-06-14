@@ -7,6 +7,64 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:801267378077:android:d968f02402f958d01a3174",
+        "android_client_info": {
+          "package_name": "com.example.covid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801267378077-joga4n7u57fqp1u05ft7rqu5rhnpvorn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-0OYH8LzBv8xHZ1UBqcSSxsmWHGTeoOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801267378077-joga4n7u57fqp1u05ft7rqu5rhnpvorn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801267378077:android:da26ce673352bb9e1a3174",
+        "android_client_info": {
+          "package_name": "com.example.pizzaadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801267378077-joga4n7u57fqp1u05ft7rqu5rhnpvorn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-0OYH8LzBv8xHZ1UBqcSSxsmWHGTeoOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801267378077-joga4n7u57fqp1u05ft7rqu5rhnpvorn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:801267378077:android:56fec33cd9f795a91a3174",
         "android_client_info": {
           "package_name": "com.example.wapp"
@@ -14,7 +72,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "801267378077-15f4l7kobcrb3fi915un10ivd2v6orqa.apps.googleusercontent.com",
+          "client_id": "801267378077-fbkoiiqgilbakc1n6f4pggaaqpvijt6j.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.wapp",
