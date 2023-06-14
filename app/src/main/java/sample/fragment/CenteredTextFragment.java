@@ -13,10 +13,6 @@ import androidx.fragment.app.Fragment;
 import com.example.wapp.R;
 
 
-/**
- * Created by yarolegovich on 25.03.2017.
- */
-
 public class CenteredTextFragment extends Fragment {
 
     private static final String EXTRA_TEXT = "text";
@@ -38,7 +34,7 @@ public class CenteredTextFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         Bundle args = getArguments();
-        final String text = args != null ? args.getString(EXTRA_TEXT) : "";
+        final String text = args != null ? args.getString(EXTRA_TEXT) : "hello world";
         TextView textView = view.findViewById(R.id.text);
         textView.setText(text);
         textView.setOnClickListener(new View.OnClickListener() {

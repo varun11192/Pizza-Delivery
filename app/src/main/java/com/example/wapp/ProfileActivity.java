@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
 
         personalinfo = findViewById(R.id.personalinfo);
         experience = findViewById(R.id.experience);
@@ -42,32 +44,32 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        experiencebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        experiencebtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                personalinfo.setVisibility(View.GONE);
+//                experience.setVisibility(View.VISIBLE);
+//                review.setVisibility(View.GONE);
+//                personalinfobtn.setTextColor(getResources().getColor(R.color.grey));
+//                experiencebtn.setTextColor(getResources().getColor(R.color.blue));
+//                reviewbtn.setTextColor(getResources().getColor(R.color.grey));
+//
+//            }
+//        });
 
-                personalinfo.setVisibility(View.GONE);
-                experience.setVisibility(View.VISIBLE);
-                review.setVisibility(View.GONE);
-                personalinfobtn.setTextColor(getResources().getColor(R.color.grey));
-                experiencebtn.setTextColor(getResources().getColor(R.color.blue));
-                reviewbtn.setTextColor(getResources().getColor(R.color.grey));
-
-            }
-        });
-
-        reviewbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                personalinfo.setVisibility(View.GONE);
-                experience.setVisibility(View.GONE);
-                review.setVisibility(View.VISIBLE);
-                personalinfobtn.setTextColor(getResources().getColor(R.color.grey));
-                experiencebtn.setTextColor(getResources().getColor(R.color.grey));
-                reviewbtn.setTextColor(getResources().getColor(R.color.blue));
-
-            }
-        });
+//        reviewbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                personalinfo.setVisibility(View.GONE);
+//                experience.setVisibility(View.GONE);
+//                review.setVisibility(View.VISIBLE);
+//                personalinfobtn.setTextColor(getResources().getColor(R.color.grey));
+//                experiencebtn.setTextColor(getResources().getColor(R.color.grey));
+//                reviewbtn.setTextColor(getResources().getColor(R.color.blue));
+//
+//            }
+//        });
     }
 }

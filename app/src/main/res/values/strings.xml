@@ -2,7 +2,7 @@
     <string name="app_name">wapp</string>
     <string name="srn_drawer_open">Open</string>
     <string name="srn_drawer_close">Close</string>
-    <string name="account_balance">Account Balance</string>
+    <string name="tagline">No more hunger</string>
     <string name="balance_currency">$</string>
     <string name="balance_amount">524.99</string>
     <string name="srn_ex_no_menu_view">No view for menu provided. You must either call .withMenuView(View) or pass a valid resource id to .withMenuLayout(int)</string>
@@ -20,4 +20,6 @@
     <string name="skills">Skills</string>
     <string name="ratings">Star Ratings</string>
     <string name="samplereview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium bibendum sapien, ut euismod massa. Duis convallis sem sed turpis elementum auctor.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
