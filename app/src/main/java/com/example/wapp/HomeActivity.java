@@ -7,11 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -29,6 +31,7 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    Button cartButton;
     ItemAdapter itemAdapter;
     List<Item> itemList = new ArrayList<>();
 
@@ -40,6 +43,14 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menupage);
 
+        cartButton = findViewById(R.id.cartButton);
+        cartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this,CartActivity.class);
+                startActivity(i);
+            }
+        });
         foodRecyclerView = findViewById(R.id.foodRecyclerView);
         foodRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         ActionBar actionBar;
