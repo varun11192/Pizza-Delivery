@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
-        itemAdapter = new ItemAdapter(itemList);
+        itemAdapter = new ItemAdapter(itemList, firestore, mAuth, this);
         foodRecyclerView.setAdapter(itemAdapter);
 
         CollectionReference itemsRef = firestore.collection("items");
