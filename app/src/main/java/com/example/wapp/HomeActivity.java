@@ -15,11 +15,10 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.wapp.adapter.Item;
 import com.example.wapp.adapter.ItemAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,6 +31,7 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     Button cartButton;
+    FloatingActionButton add_alarm_fab;
     ItemAdapter itemAdapter;
     List<Item> itemList = new ArrayList<>();
 
@@ -42,7 +42,14 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menupage);
-
+        add_alarm_fab=findViewById(R.id.add_alarm_fab);
+        add_alarm_fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(HomeActivity.this, chatbot.class);
+                startActivity(in);
+            }
+        });
         cartButton = findViewById(R.id.cartButton);
         cartButton.setOnClickListener(new View.OnClickListener() {
             @Override

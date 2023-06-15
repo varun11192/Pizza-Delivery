@@ -84,14 +84,15 @@
     </LinearLayout>
 
     <!-- RecyclerView -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/foodRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="316dp"
         android:layout_below="@id/switchesContainer"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="90dp"
         android:clipToPadding="false"
         android:padding="8dp" />
 
@@ -99,6 +100,28 @@
         android:id="@+id/cartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/add_alarm_fab"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="226dp"
+        android:layout_toStartOf="@+id/add_alarm_fab"
         android:text="Button" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_alarm_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/foodRecyclerView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="-366dp"
+        app:srcCompat="@drawable/chatbot_ic"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Action name text for the add alarm button -->
+    <!-- Make sure that you are constraining this Text to
+         the add Alarm FAB button -->
+
 
 </RelativeLayout>

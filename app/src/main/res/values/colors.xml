@@ -16,7 +16,10 @@
     <color name="colorPrimary">#fff</color>
     <color name="colorPrimaryDark">#fff</color>
     <color name="colorAccent">#448AFF</color>
-
+    <color name="textBackground">#3e2779</color>
+    <color name="inputBackground">#b9a2f5</color>
+    <color name="sent">#a044d5</color>
+    <color name="received">#413269</color>
     <color name="textColorPrimary">#212121</color>
     <color name="textColorSecondary">#757575</color>
 </resources>
