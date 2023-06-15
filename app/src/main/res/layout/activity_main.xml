@@ -9,6 +9,7 @@
     >
 
     <!--Edittext for getting users phone number-->
+
     <EditText
         android:id="@+id/idEdtPhoneNumber"
         android:layout_width="match_parent"
@@ -61,3 +62,4 @@
         android:textAllCaps="false" />
 
 </RelativeLayout>
+

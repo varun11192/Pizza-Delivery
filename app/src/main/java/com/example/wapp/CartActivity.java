@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.wapp.adapter.CartAdapter;
 import com.example.wapp.adapter.CartItem;
@@ -110,8 +112,14 @@ public class CartActivity extends AppCompatActivity {
         });
 
         checkoutButton.setOnClickListener(view -> {
-            // Perform checkout operation
+            Toast.makeText(getApplicationContext(),"Order Placed Successfully",Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(getApplicationContext(),OrdersActivity.class);
+            startActivity(i);
+            setContentView(R.layout.activity_orders);
+
+
         });
+
     }
 
     private void updateTotalPrice() {
