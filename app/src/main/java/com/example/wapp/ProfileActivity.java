@@ -2,6 +2,7 @@ package com.example.wapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
@@ -10,66 +11,34 @@ import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    LinearLayout personalinfo, experience, review;
-    TextView personalinfobtn, experiencebtn, reviewbtn;
+    TextView nameEditTxt, contactEditTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        nameEditTxt = findViewById(R.id.nameEditBtn);
+        contactEditTxt = findViewById(R.id.contactEdit);
 
-        personalinfo = findViewById(R.id.personalinfo);
-        experience = findViewById(R.id.experience);
-        review = findViewById(R.id.review);
-        personalinfobtn = findViewById(R.id.personalinfobtn);
-        /*making personal info visible*/
-        personalinfo.setVisibility(View.VISIBLE);
-        experience.setVisibility(View.GONE);
-        review.setVisibility(View.GONE);
-
-
-        personalinfobtn.setOnClickListener(new View.OnClickListener() {
+        nameEditTxt.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                personalinfo.setVisibility(View.VISIBLE);
-                experience.setVisibility(View.GONE);
-                review.setVisibility(View.GONE);
-                personalinfobtn.setTextColor(getResources().getColor(R.color.blue));
-                experiencebtn.setTextColor(getResources().getColor(R.color.grey));
-                reviewbtn.setTextColor(getResources().getColor(R.color.grey));
-
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, ProfileUpdate.class);
+                startActivity(intent);
             }
         });
 
-//        experiencebtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                personalinfo.setVisibility(View.GONE);
-//                experience.setVisibility(View.VISIBLE);
-//                review.setVisibility(View.GONE);
-//                personalinfobtn.setTextColor(getResources().getColor(R.color.grey));
-//                experiencebtn.setTextColor(getResources().getColor(R.color.blue));
-//                reviewbtn.setTextColor(getResources().getColor(R.color.grey));
-//
-//            }
-//        });
+        contactEditTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, ProfileUpdate.class);
+                startActivity(intent);
+            }
+        });
 
-//        reviewbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                personalinfo.setVisibility(View.GONE);
-//                experience.setVisibility(View.GONE);
-//                review.setVisibility(View.VISIBLE);
-//                personalinfobtn.setTextColor(getResources().getColor(R.color.grey));
-//                experiencebtn.setTextColor(getResources().getColor(R.color.grey));
-//                reviewbtn.setTextColor(getResources().getColor(R.color.blue));
-//
-//            }
-//        });
+
+
     }
 
     public static class Alt_auth {

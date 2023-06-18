@@ -103,7 +103,7 @@
                 />
 
             <EditText
-                android:id="@+id/new_pass_et"
+                android:id="@+id/email_et"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="32dp"
@@ -126,7 +126,7 @@
                 android:layout_marginTop="16dp"
                 android:textColor="@color/black"
                 app:layout_constraintLeft_toLeftOf="@id/personalInfoTitle"
-                app:layout_constraintTop_toBottomOf="@id/new_pass_et"
+                app:layout_constraintTop_toBottomOf="@id/email_et"
                 />
 
             <EditText
