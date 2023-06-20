@@ -33,6 +33,9 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
+            android:name=".OrdersActivity"
+            android:exported="false" />
+        <activity
             android:name=".chatbot"
             android:exported="false" />
         <activity
