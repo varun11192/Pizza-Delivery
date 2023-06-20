@@ -36,6 +36,9 @@
             android:name=".chatbot"
             android:exported="false" />
         <activity
+            android:name=".ProfileUpdate"
+            android:exported="false" />
+        <activity
             android:name=".SampleActivity"
             android:exported="true" />
         <activity
