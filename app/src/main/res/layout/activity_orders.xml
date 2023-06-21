@@ -18,7 +18,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="62dp"
         android:layout_marginLeft="16dp"/>
 
     <TextView
@@ -65,14 +65,13 @@
         android:id="@+id/cart_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="508dp"
+        android:layout_marginBottom="464dp"
         android:background="@color/red"
         android:gravity="center"
         android:padding="6sp"
         android:text="Order Summary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
