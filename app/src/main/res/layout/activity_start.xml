@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="@drawable/curve_layout"
+        android:orientation="vertical"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:focusableInTouchMode="true"
+        android:src="@drawable/pizza_icon"
+        android:padding="12dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="270dp"
+        android:elevation="5dp"
+        android:background="@drawable/circle_layout"
+        />
+
+    <TextView
+        android:id="@+id/pizzoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/circleView"
+        android:text="Pizzo"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/peach"
+        android:fontFamily="@font/korto_bold"
+        android:gravity="center"
+        android:textSize="40sp"
+        />
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pizzoTitle"
+        android:text="Pizza? We got you!"
+        android:fontFamily="@font/kortobook"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#F44C5A"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subtitle"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="#FEDA63"
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:textSize="16sp"
+        android:text="Get Started for Free   >"
+        android:textAllCaps="false"
+        android:textColor="#F44C5A" />
+
+
+
+
+</RelativeLayout>
