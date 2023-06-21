@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.wapp.adapter.CartAdapter;
 import com.example.wapp.adapter.CartItem;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -41,6 +42,33 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.cart);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.bottom_home:
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+                case R.id.cart:
+                    return true;
+                case R.id.orders:
+                    startActivity(new Intent(getApplicationContext(), OrdersActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+                case R.id.profile:
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+            }
+            return false;
+        });
 
         mAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
