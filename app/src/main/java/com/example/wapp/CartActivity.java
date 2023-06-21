@@ -29,7 +29,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+    private FirebaseAuth
+
+            mAuth;
     private FirebaseFirestore firestore;
     private RecyclerView cartRecyclerView;
     private CartAdapter cartAdapter;

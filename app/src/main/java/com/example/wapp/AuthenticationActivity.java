@@ -41,6 +41,10 @@ public class AuthenticationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(getSupportActionBar()!= null){
+            getSupportActionBar().hide();
+        }
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
 //         ?    User is already authenticated, navigate to the next activity

@@ -4,62 +4,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7D49E"
     tools:context=".AuthenticationActivity"
+    android:background="@color/peach"
     >
 
-    <!--Edittext for getting users phone number-->
-
-    <EditText
-        android:id="@+id/idEdtPhoneNumber"
+    <TextView
+        android:id="@+id/titleTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:hint="Enter your phone"
-        android:importantForAutofill="no"
-        android:inputType="phone" />
-
-    <!--Button for getting OTP-->
-    <Button
-        android:id="@+id/idBtnGetOtp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idEdtPhoneNumber"
-        android:layout_marginStart="10dp"
-        android:background="@drawable/rounded_corner"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="Get OTP"
-        android:textAllCaps="false"
+        android:text="Pizzo"
+        android:textColor="@color/red"
+        android:fontFamily="@font/korto_bold"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginTop="48dp"
         />
 
-    <!--Edittext for getting otp from user-->
-    <EditText
-        android:id="@+id/idEdtOtp"
+    <TextView
+        android:id="@+id/subtitleTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idBtnGetOtp"
-        android:layout_margin="10dp"
-        android:hint="Enter OTP"
-        android:importantForAutofill="no"
-        android:inputType="phone" />
+        android:text="We are going to be your new love"
+        android:layout_below="@id/titleTv"
+        android:textColor="#F44C5A"
+        android:fontFamily="@font/kortobook"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        />
 
-    <!--button for verifying user OTP-->
-    <Button
-        android:id="@+id/idBtnVerify"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idEdtOtp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#E81514"
-        android:background="@drawable/rounded_corner"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="Verify OTP"
-        android:textAllCaps="false" />
+        android:layout_height="500dp"
+        android:orientation="vertical"
+        android:elevation="2dp"
+        android:background="@drawable/curve_top"
+        android:layout_alignParentBottom="true"
+        >
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/getStartedTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Started"
+            android:fontFamily="@font/korto_bold"
+            android:textColor="@color/peach"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_marginTop="64dp"
+            />
+
+        <EditText
+            android:id="@+id/idEdtPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/getStartedTv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="10dp"
+            android:hint="Mobile number"
+            android:importantForAutofill="no"
+            android:inputType="phone" />
+
+        <!--Button for getting OTP-->
+        <Button
+            android:id="@+id/idBtnGetOtp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idEdtPhoneNumber"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:textColor="#F44C5A"
+            android:backgroundTint="#FEDA63"
+            android:background="@drawable/rounded_corner"
+            android:text="Get OTP"
+            android:textAllCaps="false"
+            />
+
+        <!--Edittext for getting otp from user-->
+        <EditText
+            android:id="@+id/idEdtOtp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idBtnGetOtp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="32dp"
+            android:hint="Enter OTP here"
+            android:importantForAutofill="no"
+            android:inputType="phone" />
+
+        <!--button for verifying user OTP-->
+        <Button
+            android:id="@+id/idBtnVerify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idEdtOtp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:backgroundTint="#FEDA63"
+            android:background="@drawable/rounded_corner"
+            android:text="Verify OTP"
+            android:textColor="#F44C5A"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+    </RelativeLayout>
+
+
+
 
