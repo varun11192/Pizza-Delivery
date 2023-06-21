@@ -40,7 +40,7 @@
         android:elevation="2dp"
         android:background="@drawable/curve_top"
         android:layout_alignParentBottom="true"
-        />
+        >
 
         <TextView
             android:id="@+id/getStartedTv"
@@ -116,7 +116,8 @@
 
     </LinearLayout>
 
+    </RelativeLayout>
 
 
-</RelativeLayout>
+
 
