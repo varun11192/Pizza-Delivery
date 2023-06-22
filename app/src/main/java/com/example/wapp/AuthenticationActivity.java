@@ -82,10 +82,15 @@ public class AuthenticationActivity extends AppCompatActivity {
                 } else {
                     Intent intent = new Intent(AuthenticationActivity.this, HomeActivity.class);
                     startActivity(intent);
-                    //verifyCode(edtOTP.getText().toString());
+                    verifyCode(edtOTP.getText().toString());
                 }
             }
         });
+    }
+
+    private void verifyCode(String code) {
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
+        signInWithCredential(credential);
     }
 
     private void signInWithCredential(PhoneAuthCredential credential) {
@@ -160,8 +165,5 @@ public class AuthenticationActivity extends AppCompatActivity {
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
-    private void verifyCode(String code) {
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
-        signInWithCredential(credential);
-    }
+
 }

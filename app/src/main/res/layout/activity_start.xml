@@ -54,6 +54,7 @@
         />
 
     <Button
+        android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/subtitle"
@@ -64,10 +65,10 @@
         android:gravity="center"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
-        android:textSize="16sp"
         android:text="Get Started for Free   >"
         android:textAllCaps="false"
-        android:textColor="#F44C5A" />
+        android:textColor="#F44C5A"
+        android:textSize="16sp" />
 
 
 
