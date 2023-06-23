@@ -1,6 +1,7 @@
 package com.example.wapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,8 +17,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -71,28 +75,24 @@ public class ProfileActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         firebaseUser = auth.getCurrentUser();
-        String uid = firebaseUser.getUid();
+        String userId = firebaseUser.getUid();
 
         if (firebaseUser != null) {
             // User is signed in
-            firebaseFirestore.collection(uid)
-                    .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()){
-                                for (DocumentSnapshot snapshot: task.getResult()) {
-                                    nameTv.setText(snapshot.getString("name"));
-                                    mobileTv.setText(snapshot.getString("mobile"));
-                                    emailTv.setText(snapshot.getString("email"));
-                                    addressTv.setText(snapshot.getString("address"));
-                                }
-                            } else {
-                                Toast.makeText(ProfileActivity.this, task.getException().getMessage() , Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+            DocumentReference documentReference = firebaseFirestore.collection("users")
+                    .document(userId);
+            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    nameTv.setText(value.getString("name"));
+                    mobileTv.setText(value.getString("mobile"));
+                    emailTv.setText(value.getString("email"));
+                    addressTv.setText(value.getString("address"));
+                }
+            });
         } else {
             // No user is signed in
+            Toast.makeText(this, "Please SignIn and Update your personal details.", Toast.LENGTH_SHORT).show();
         }
         nameEditTxt.setOnClickListener(new View.OnClickListener() {
             @Override
