@@ -80,9 +80,9 @@ public class AuthenticationActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(edtOTP.getText().toString())) {
                     Toast.makeText(AuthenticationActivity.this, "Please enter OTP", Toast.LENGTH_SHORT).show();
                 } else {
+                    verifyCode(edtOTP.getText().toString());
                     Intent intent = new Intent(AuthenticationActivity.this, HomeActivity.class);
                     startActivity(intent);
-                    verifyCode(edtOTP.getText().toString());
                 }
             }
         });
