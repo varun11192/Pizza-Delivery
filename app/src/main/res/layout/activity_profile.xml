@@ -101,8 +101,7 @@
                     <ImageView
                         android:layout_width="150dp"
                         android:layout_height="90dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/pp" />
+                        android:src="@drawable/baseline_person_outline_24" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -115,7 +114,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/proximanovaregular"
-                        android:text="Sanskar Tiwari"
+                        android:text="Varun Sen"
                         android:textColor="#424242"
                         android:textSize="21sp"
                         android:textStyle="bold" />
@@ -186,7 +185,9 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -206,6 +207,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Edit"
+                                android:layout_gravity="end"
                                 android:fontFamily="@font/proximanovaregular"
                                 android:textColor="#E4B056"
                                 android:layout_marginEnd="10dp"
