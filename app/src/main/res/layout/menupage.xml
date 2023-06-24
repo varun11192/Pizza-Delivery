@@ -5,24 +5,31 @@
     android:background="#F5F5F7"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- Poster CardView -->
     <androidx.cardview.widget.CardView
         android:id="@+id/posterCardView"
         android:layout_width="match_parent"
         app:cardCornerRadius="32dp"
         android:layout_height="200dp"
         android:elevation="10dp"
-        android:layout_margin="32dp">
+        android:layout_margin="32dp"
+        android:backgroundTint="#DE2018"
+        >
 
-        <ImageView
-            android:id="@+id/posterImageView"
+        <pl.droidsonroids.gif.GifImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
+            android:src="@drawable/order_from_pizzo"
             android:adjustViewBounds="true"
-            android:background="@color/white"
+            />
 
-            android:src="@drawable/poster_image" />
+<!--        <ImageView-->
+<!--            android:id="@+id/posterImageView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            android:background="@color/white"-->
+<!--            android:src="@drawable/poster_image" />-->
 
     </androidx.cardview.widget.CardView>
 

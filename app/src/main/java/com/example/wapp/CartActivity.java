@@ -160,7 +160,7 @@ public class CartActivity extends AppCompatActivity {
 
         DecimalFormat decimalFormat = new DecimalFormat("#0.00");
         String totalPrice = decimalFormat.format(total);
-        totalPriceTextView.setText("Total: $" + totalPrice);
+        totalPriceTextView.setText("Rs " + totalPrice);
     }
 
     public void removeItem(int position) {

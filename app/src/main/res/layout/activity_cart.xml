@@ -9,13 +9,14 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_above="@id/checkoutLayout"
+        android:layout_marginBottom="8dp">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/checkoutLayout"
         />
     </ScrollView>
 
@@ -27,15 +28,14 @@
         android:layout_alignParentBottom="true"
         android:background="@android:color/white"
         android:padding="16dp"
-        android:layout_marginBottom="100dp"
-        >
+        android:layout_marginBottom="100dp">
 
         <TextView
             android:id="@+id/totalPriceLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Total Price:"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@android:color/black"
             />
 
@@ -43,18 +43,23 @@
             android:id="@+id/totalPriceTextView"
             android:layout_width="wrap_content"
             android:text="100"
-            android:layout_marginLeft="8dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:layout_marginBottom="16dp"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
 
         <Button
             android:id="@+id/checkoutButton"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Checkout"
-            android:layout_marginLeft="120dp"
             android:backgroundTint="@color/red"
             android:background="@drawable/rounded_button"
             android:textColor="@android:color/white"
