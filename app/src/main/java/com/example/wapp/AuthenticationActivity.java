@@ -83,6 +83,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                     verifyCode(edtOTP.getText().toString());
                     Intent intent = new Intent(AuthenticationActivity.this, HomeActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -113,7 +114,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                                         public void onSuccess(Void aVoid) {
                                             Log.d("tag", "DocumentSnapshot successfully written!");
                                             // Navigate to the next activity
-                                            Intent intent = new Intent(AuthenticationActivity.this, ProfileActivity.class);
+                                            Intent intent = new Intent(AuthenticationActivity.this, HomeActivity.class);
                                             startActivity(intent);
                                             finish();
                                         }
