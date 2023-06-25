@@ -22,15 +22,6 @@
             android:adjustViewBounds="true"
             />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/posterImageView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:adjustViewBounds="true"-->
-<!--            android:background="@color/white"-->
-<!--            android:src="@drawable/poster_image" />-->
-
     </androidx.cardview.widget.CardView>
 
     <!-- Switches Container -->
@@ -91,16 +82,18 @@
 
     <!-- RecyclerView -->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/foodRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="316dp"
-        android:layout_below="@id/switchesContainer"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="90dp"
-        android:clipToPadding="false"
-        android:padding="8dp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/foodRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="316dp"
+            android:layout_below="@id/switchesContainer"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="90dp"
+            android:clipToPadding="false"
+            android:padding="8dp" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
