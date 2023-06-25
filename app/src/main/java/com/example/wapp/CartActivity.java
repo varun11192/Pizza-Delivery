@@ -19,19 +19,21 @@ import com.example.wapp.adapter.CartItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.WriteBatch;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CartActivity extends AppCompatActivity {
-    private FirebaseAuth
-
-            mAuth;
+    private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
     private RecyclerView cartRecyclerView;
     private CartAdapter cartAdapter;
@@ -49,7 +51,7 @@ public class CartActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.cart);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.bottom_home:
                     startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -67,7 +69,6 @@ public class CartActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
-
             }
             return false;
         });
@@ -111,45 +112,43 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-        CollectionReference cartRef = firestore.collection("users").document(userId).collection("cart");
-
-        cartListenerRegistration = cartRef.addSnapshotListener((snapshot, error) -> {
-            if (error != null) {
-                Log.e(TAG, "Error listening for cart changes: ", error);
-                return;
-            }
-
-            // Clear the existing list
-            cartItemList.clear();
-
-            // Iterate over the snapshot documents and populate the list
-            for (DocumentSnapshot document : snapshot.getDocuments()) {
-                String itemId = document.getId();
-                String name = document.getString("name");
-                double price = document.getDouble("price");
-                String imageString = document.getString("image");
-
-                // Convert the Base64 string to a byte array
-                byte[] imageBytes = Base64.decode(imageString, Base64.DEFAULT);
-
-                CartItem cartItem = new CartItem(itemId, name, price, imageBytes);
-                cartItemList.add(cartItem);
-            }
-
-            // Notify the adapter that the data set has changed
-            cartAdapter.notifyDataSetChanged();
-            updateTotalPrice();
-        });
+//        CollectionReference cartRef = firestore.collection("users").document(userId).collection("cart");
+//
+//        cartListenerRegistration = cartRef.addSnapshotListener((snapshot, error) -> {
+//            if (error != null) {
+//                Log.e(TAG, "Error listening for cart changes: ", error);
+//                return;
+//            }
+//
+//            // Clear the existing list
+//            cartItemList.clear();
+//
+//            // Iterate over the snapshot documents and populate the list
+//            for (DocumentSnapshot document : snapshot.getDocuments()) {
+//                String itemId = document.getId();
+//                String name = document.getString("name");
+//                double price = document.getDouble("price");
+//                String imageString = document.getString("image");
+//
+//                // Convert the Base64 string to a byte array
+//                byte[] imageBytes = Base64.decode(imageString, Base64.DEFAULT);
+//
+//                CartItem cartItem = new CartItem(itemId, name, price, imageBytes);
+//                cartItemList.add(cartItem);
+//            }
+//
+//            // Notify the adapter that the data set has changed
+//            cartAdapter.notifyDataSetChanged();
+//            updateTotalPrice();
+//        });
 
         checkoutButton.setOnClickListener(view -> {
-            Toast.makeText(getApplicationContext(),"Order Placed Successfully",Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(getApplicationContext(),OrdersActivity.class);
-            startActivity(i);
-            setContentView(R.layout.activity_orders);
-
-
+            Toast.makeText(getApplicationContext(), "Order Placed Successfully", Toast.LENGTH_SHORT).show();
+            addOrderToOrders(); // Add the order to Firestore
+            clearCart(); // Remove items from the cart
+            startActivity(new Intent(getApplicationContext(), OrdersActivity.class));
+            finish();
         });
-
     }
 
     private void updateTotalPrice() {
@@ -167,6 +166,135 @@ public class CartActivity extends AppCompatActivity {
         cartItemList.remove(position);
         cartAdapter.notifyItemRemoved(position);
         updateTotalPrice();
+    }
+
+//    private void addOrderToOrders() {
+//        // Retrieve the user ID
+//        String uid = mAuth.getCurrentUser().getUid();
+//
+//        DocumentReference cartRef = firestore.collection("users").document(uid).collection("order").document();
+//        Map<String, Object> order = new HashMap<>();
+//        String userId = mAuth.getCurrentUser().getUid();
+////        String itemId = document.getId();
+////            String name = document.getString("name");
+////            double price = document.getDouble("price");
+////            String imageString = document.getString("image");
+//
+//        // Convert the Base64 string to a byte array
+//
+//        byte[] imageBytes = Base64.decode(imageString, Base64.DEFAULT);
+//
+//        imageString = Base64.encodeToString(order.getImageBytes(), Base64.DEFAULT);
+//        order.put("image", imageString);
+//
+//        cartRef.set(cartItem)
+//                .addOnSuccessListener(aVoid -> {
+//                    Toast.makeText(CartActivity.this, "Item added to cart", Toast.LENGTH_SHORT).show();
+//                })
+//                .addOnFailureListener(e -> {
+//                    Toast.makeText(CartActivity.this, "Failed to add item to cart", Toast.LENGTH_SHORT).show();
+//                    Log.e(TAG, "Error adding item to cart: ", e);
+//                });
+//
+////        for (DocumentSnapshot document : snapshot.getDocuments()) {
+////            String itemId = document.getId();
+////            String name = document.getString("name");
+////            double price = document.getDouble("price");
+////            String imageString = document.getString("image");
+////
+////            // Convert the Base64 string to a byte array
+////            byte[] imageBytes = Base64.decode(imageString, Base64.DEFAULT);
+////
+////        }
+//
+//        // Get the order details from the cart or calculate them as needed
+//        List<CartItem> items = cartItemList;
+//        double totalAmount = getTotalAmount();
+//
+//        // Generate an order ID (you can use your own logic here)
+//        String orderId = generateOrderId();
+//
+//        // Create a new order document in the "orders" collection
+//        DocumentReference orderRef = firestore.collection("users").document(userId);
+//
+//        Order order = new Order(userId, items,
+//                //  itemId, name, price, imageBytes,
+//                totalAmount,
+//                "preparing", orderId); // Set the initial order status and order ID
+//
+//
+//    }
+private void addOrderToOrders() {
+    // Retrieve the user ID
+    String userId = mAuth.getCurrentUser().getUid();
+
+    // Generate an order ID (you can use your own logic here)
+    String orderId = generateOrderId();
+
+    // Create a new order document in the "orders" collection
+    DocumentReference orderRef = firestore.collection("users").document(userId);
+
+    // Iterate over each cart item and create a separate order document for each item
+    for (CartItem cartItem : cartItemList) {
+        String itemId = cartItem.getItemId();
+        String name = cartItem.getName();
+        double price = cartItem.getPrice();
+        byte[] imageBytes = cartItem.getImageBytes();
+
+        // Create a separate Order object for each cart item
+        Order order = new Order(userId, itemId, name, price, imageBytes, price, "preparing", orderId);
+
+        // Generate a unique document ID for each order item
+        DocumentReference orderItemRef = orderRef.collection("order").document();
+
+        orderItemRef.set(order)
+                .addOnSuccessListener(aVoid -> {
+                    Log.d(TAG, "Order item added to Firestore successfully");
+                })
+                .addOnFailureListener(e -> {
+                    Log.e(TAG, "Failed to add order item to Firestore: " + e.getMessage());
+                });
+    }
+}
+
+    private void clearCart() {
+        // Replace `userId` with your actual user ID value
+        String userId = mAuth.getCurrentUser().getUid();
+
+        // Remove all items from the cart collection in Firestore
+        firestore.collection("users").document(userId).collection("cart")
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    List<DocumentSnapshot> documents = querySnapshot.getDocuments();
+                    WriteBatch batch = firestore.batch();
+                    for (DocumentSnapshot document : documents) {
+                        batch.delete(document.getReference());
+                    }
+                    ((WriteBatch) batch).commit()
+                            .addOnSuccessListener(aVoid -> {
+                                Log.d(TAG, "Cart cleared successfully");
+                            })
+                            .addOnFailureListener(e -> {
+                                Log.e(TAG, "Failed to clear cart: " + e.getMessage());
+                            });
+                })
+                .addOnFailureListener(e -> {
+                    Log.e(TAG, "Error clearing cart: " + e.getMessage());
+                });
+    }
+
+    private double getTotalAmount() {
+        double total = 0.0;
+        for (CartItem cartItem : cartItemList) {
+            total += cartItem.getPrice();
+        }
+        return total;
+    }
+
+    private String generateOrderId() {
+        // Generate your order ID logic here (e.g., based on timestamp, random number, etc.)
+        // For simplicity, let's use the current timestamp in this example
+        return String.valueOf(System.currentTimeMillis());
     }
 
     @Override
