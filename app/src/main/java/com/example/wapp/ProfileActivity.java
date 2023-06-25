@@ -26,7 +26,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    TextView nameEditTxt, contactEditTxt, nameTv, mobileTv, emailTv, addressTv;
+    TextView nameEditTxt, contactEditTxt, nameTv, mobileTv, emailTv, addressTv, nameBigTv;
     FirebaseAuth auth;
     FirebaseFirestore firebaseFirestore;
     FirebaseUser firebaseUser;
@@ -71,6 +71,7 @@ public class ProfileActivity extends AppCompatActivity {
         addressTv = findViewById(R.id.addressTv);
         nameEditTxt = findViewById(R.id.nameEditBtn);
         contactEditTxt = findViewById(R.id.contactEdit);
+        nameBigTv = findViewById(R.id.nameBigTv);
 
         firebaseFirestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -84,6 +85,7 @@ public class ProfileActivity extends AppCompatActivity {
             documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    nameBigTv.setText(value.getString("name"));
                     nameTv.setText(value.getString("name"));
                     mobileTv.setText(value.getString("mobile"));
                     emailTv.setText(value.getString("email"));
