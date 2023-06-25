@@ -14,24 +14,31 @@ public class StartActivity extends AppCompatActivity {
 
     Button startBtn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         if (user != null) {
 //             User is already authenticated, navigate to the next activity
             Intent intent = new Intent(StartActivity.this, HomeActivity.class);
             startActivity(intent);
             finish();
         }
-
         startBtn = findViewById(R.id.startButton);
 
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (user != null) {
+//             User is already authenticated, navigate to the next activity
+                Intent intent = new Intent(StartActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
+            }
                 startActivity(new Intent(getApplicationContext(), AuthenticationActivity.class) );
                 finish();
             }

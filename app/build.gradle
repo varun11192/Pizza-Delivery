@@ -56,6 +56,9 @@ dependencies {
     implementation 'com.google.android.play:integrity:1.1.0'
 
 
+    implementation 'com.razorpay:checkout:1.6.20'
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'
 
 
 }

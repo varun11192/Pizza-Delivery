@@ -172,7 +172,7 @@
 
                 <!--About Me Card-->
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/circularbordersolid"
                     android:orientation="vertical"
@@ -192,8 +192,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/about_me"
                                 android:fontFamily="@font/proximanovaregular"
+                                android:text="@string/about_me"
                                 android:textSize="17sp"
                                 android:textStyle="bold" />
 
@@ -206,10 +206,10 @@
                                 android:id="@+id/nameEditBtn"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Edit"
-                                android:fontFamily="@font/proximanovaregular"
-                                android:textColor="#E4B056"
                                 android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/proximanovaregular"
+                                android:text="Edit"
+                                android:textColor="#E4B056"
                                 android:textSize="14sp" />
                         </LinearLayout>
 
@@ -218,8 +218,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:textSize="15sp"
-                            android:text="@string/my_desc" />
+                            android:text="@string/my_desc"
+                            android:textSize="15sp" />
                     </LinearLayout>
 
                 </LinearLayout>

@@ -83,6 +83,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                     verifyCode(edtOTP.getText().toString());
                     Intent intent = new Intent(AuthenticationActivity.this, HomeActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });
