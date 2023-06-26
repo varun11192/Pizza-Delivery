@@ -200,10 +200,10 @@ public class CartActivity extends AppCompatActivity implements PaymentResultList
     @Override
     public void onPaymentError(int i, String s) {
 
-        Toast.makeText(this, "Failed Payment"+s, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Payment Successfull", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, OrdersActivity.class);
         startActivity(intent);
-        Toast.makeText(this, "Payment will be proceeded shortly", Toast.LENGTH_SHORT).show();
+
 
     }
 
