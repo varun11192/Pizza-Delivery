@@ -1,5 +1,8 @@
 package com.example.wapp.adapter;
 
+import static android.content.Intent.getIntent;
+import static android.content.Intent.makeRestartActivityTask;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;

@@ -61,9 +61,6 @@
             android:name=".ProfileUpdate"
             android:exported="false" />
         <activity
-            android:name=".SampleActivity"
-            android:exported="true" />
-        <activity
             android:name=".AuthenticationActivity"
             android:exported="true" />
     </application>

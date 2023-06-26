@@ -38,7 +38,7 @@ TextView ordernotv;
         cart_btn = findViewById(R.id.cart_btn);
         ordernotv = findViewById(R.id.ordernotv);
 
-        paybtn = findViewById(R.id.paybutton);
+       // paybtn = findViewById(R.id.paybutton);
         cart_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,12 +84,12 @@ TextView ordernotv;
 
         TextView textView = findViewById(R.id.tv_date);
         textView.setText(currentDate);
-        paybtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                makepayment();
-            }
-        });
+//        paybtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                makepayment();
+//            }
+//        });
 
 
 

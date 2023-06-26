@@ -21,10 +21,12 @@ import com.example.wapp.adapter.CartItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.WriteBatch;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 
@@ -87,6 +89,7 @@ public class CartActivity extends AppCompatActivity {
         cartItemList = new ArrayList<>();
         cartAdapter = new CartAdapter(cartItemList, this);
         cartRecyclerView.setAdapter(cartAdapter);
+
 
         // Replace `userId` with your actual user ID value
         String userId = mAuth.getCurrentUser().getUid();
@@ -168,6 +171,7 @@ public class CartActivity extends AppCompatActivity {
 
     public void removeItem(int position) {
         cartItemList.remove(position);
+        cartAdapter.notifyDataSetChanged();
         cartAdapter.notifyItemRemoved(position);
         updateTotalPrice();
     }
