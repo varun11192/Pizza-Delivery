@@ -1,87 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".OrdersActivity"
+    android:background="@drawable/pizzo1"
+    >
 
-    <!-- Logo -->
-    <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo" />
-
-    <!-- "Your Order Has Been Placed" heading -->
     <TextView
-        android:id="@+id/orderPlacedTextView"
+        android:id="@+id/ordertv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/logoImageView"
-        android:layout_centerHorizontal="true"
-        android:text="Your Order Has Been Placed" />
+        android:text="Thanks for ordering from Pizzo!"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="62dp"
+        android:layout_marginLeft="16dp"/>
 
-    <!-- Order ID card view -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/orderIdCardView"
-        android:layout_width="200dp"
+    <TextView
+        android:id="@+id/ordernotv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orderPlacedTextView"
-        android:layout_centerHorizontal="true"
-        app:cardBackgroundColor="#ffffff"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp">
+        android:text="Your Order No. 12"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ordertv" />
 
-        <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+    <TextView
+        android:id="@+id/statustv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:text="Status : Preparing"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ordernotv"
+        app:layout_constraintTop_toBottomOf="@+id/ordertv" />
 
-            <TextView
-                android:id="@+id/orderIdTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Order ID: 12345" />
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ordernotv" />
 
-            <!-- Second Image -->
-            <ImageView
-                android:id="@+id/secondImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/order_image" />
-
-            <!-- "Thank you for ordering with Pizzo" text -->
-            <TextView
-                android:id="@+id/thankYouTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Thank you for ordering with Pizzo!" />
-
-            <!-- Total price -->
-            <TextView
-                android:id="@+id/totalPriceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Total Price: $XX.XX" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <!-- Cart button -->
     <Button
-        android:id="@+id/cartButton"
+        android:id="@+id/cart_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orderIdCardView"
-        android:layout_alignEnd="@+id/orderIdCardView"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="56dp"
-        android:text="Cart" />
+        android:layout_marginBottom="464dp"
+        android:background="@color/red"
+        android:gravity="center"
+        android:padding="6sp"
+        android:text="Order Summary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_background"
+        android:elevation="2dp"
+        app:itemIconSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
 
 
+
+</androidx.constraintlayout.widget.ConstraintLayout>
