@@ -58,19 +58,16 @@ public class CartActivity extends AppCompatActivity implements PaymentResultList
             switch (item.getItemId()){
                 case R.id.bottom_home:
                     startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
                 case R.id.cart:
                     return true;
                 case R.id.orders:
                     startActivity(new Intent(getApplicationContext(), OrdersActivity.class));
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
                 case R.id.profile:
                     startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
 
