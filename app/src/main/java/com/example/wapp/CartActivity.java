@@ -31,6 +31,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.UUID;
 
 public class CartActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -146,7 +148,9 @@ public class CartActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Order Placed Successfully", Toast.LENGTH_SHORT).show();
             addOrderToOrders(); // Add the order to Firestore
             clearCart(); // Remove items from the cart
-            startActivity(new Intent(getApplicationContext(), OrdersActivity.class));
+            Intent intent = new Intent(getApplicationContext(),OrdersActivity.class);
+
+            startActivity(intent);
             finish();
         });
     }
@@ -228,11 +232,9 @@ private void addOrderToOrders() {
     // Retrieve the user ID
     String userId = mAuth.getCurrentUser().getUid();
 
-    // Generate an order ID (you can use your own logic here)
-    String orderId = generateOrderId();
-
-    // Create a new order document in the "orders" collection
-    DocumentReference orderRef = firestore.collection("users").document(userId);
+    // Generate an order ID
+    String orderId = generateOrderId(userId);
+    getIntent().putExtra(orderId,orderId);
 
     // Iterate over each cart item and create a separate order document for each item
     for (CartItem cartItem : cartItemList) {
@@ -244,8 +246,11 @@ private void addOrderToOrders() {
         // Create a separate Order object for each cart item
         Order order = new Order(userId, itemId, name, price, imageBytes, price, "preparing", orderId);
 
-        // Generate a unique document ID for each order item
-        DocumentReference orderItemRef = orderRef.collection("order").document();
+        // Create a unique document ID for each order item
+        String orderItemId = generateOrderItemId(itemId); // Implement your own logic to generate a unique order item ID
+
+        // Create a reference to the order item document using the order ID and order item ID
+        DocumentReference orderItemRef = firestore.collection("orders").document();
 
         orderItemRef.set(order)
                 .addOnSuccessListener(aVoid -> {
@@ -255,7 +260,29 @@ private void addOrderToOrders() {
                     Log.e(TAG, "Failed to add order item to Firestore: " + e.getMessage());
                 });
     }
+
+    // Update the order document with the total price
+//    double totalPrice = calculateTotalPrice(); // Implement your own logic to calculate the total price
+//    DocumentReference orderRef = firestore.collection("orders").document(orderId);
+//    orderRef.update("totalPrice", totalPrice)
+//            .addOnSuccessListener(aVoid -> {
+//                Log.d(TAG, "Total price updated successfully");
+//            })
+//            .addOnFailureListener(e -> {
+//                Log.e(TAG, "Failed to update total price: " + e.getMessage());
+//            });
 }
+
+    private String generateOrderId(String userId) {
+        // Generate a random number between 100 and 1000
+        int randomNumber = new Random().nextInt(901) + 100;
+
+        // Combine the user ID and random number to create the order ID
+        String orderId = userId + "_" + randomNumber;
+
+        return orderId;
+    }
+
 
     private void clearCart() {
         // Replace `userId` with your actual user ID value
@@ -291,10 +318,25 @@ private void addOrderToOrders() {
         return total;
     }
 
-    private String generateOrderId() {
-        // Generate your order ID logic here (e.g., based on timestamp, random number, etc.)
-        // For simplicity, let's use the current timestamp in this example
-        return String.valueOf(System.currentTimeMillis());
+//    private String generateOrderId() {
+//        // Generate your order ID logic here (e.g., based on timestamp, random number, etc.)
+//        // For simplicity, let's use the current timestamp in this example
+//        return String.valueOf(System.currentTimeMillis());
+//    }
+
+    private String generateOrderItemId(String itemId) {
+        // Generate a unique order item ID using the itemId and a UUID
+        return itemId + "_" + UUID.randomUUID().toString();
+    }
+    private double calculateTotalPrice() {
+        double totalPrice = 0.0;
+
+        // Iterate over each cart item and add up the prices
+        for (CartItem cartItem : cartItemList) {
+            totalPrice += cartItem.getPrice();
+        }
+
+        return totalPrice;
     }
 
     @Override

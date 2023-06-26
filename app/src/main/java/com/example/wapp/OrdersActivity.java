@@ -23,17 +23,30 @@ import java.util.Calendar;
 
 public class OrdersActivity extends AppCompatActivity implements PaymentResultListener {
     Button cartbutton;
-
-
+Button cart_btn;
+TextView ordernotv;
     Button paybtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String id = String.valueOf(getIntent().getExtras());
         Checkout.preload(getApplicationContext());
+
+        cart_btn = findViewById(R.id.cart_btn);
+
+
         setContentView(R.layout.activity_orders);
+        ordernotv = findViewById(R.id.ordernotv);
         cartbutton = findViewById(R.id.cart_btn);
         paybtn = findViewById(R.id.paybutton);
+        cart_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),summaryActivity.class);
+                startActivity(intent);
+            }
+        });
         cartbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
