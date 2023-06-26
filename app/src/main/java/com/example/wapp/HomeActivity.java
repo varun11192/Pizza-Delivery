@@ -79,14 +79,14 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(in);
             }
         });
-        cartButton = findViewById(R.id.cartButton);
-        cartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this,CartActivity.class);
-                startActivity(i);
-            }
-        });
+//        cartButton = findViewById(R.id.cartButton);
+//        cartButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(HomeActivity.this,CartActivity.class);
+//                startActivity(i);
+//            }
+//        });
         foodRecyclerView = findViewById(R.id.foodRecyclerView);
         foodRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         ActionBar actionBar;

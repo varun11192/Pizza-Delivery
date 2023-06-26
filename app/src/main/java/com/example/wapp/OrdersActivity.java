@@ -21,11 +21,9 @@ import org.json.JSONObject;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-public class OrdersActivity extends AppCompatActivity implements PaymentResultListener {
+public class OrdersActivity extends AppCompatActivity {
     Button cartbutton;
 
-
-    Button paybtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +31,7 @@ public class OrdersActivity extends AppCompatActivity implements PaymentResultLi
         Checkout.preload(getApplicationContext());
         setContentView(R.layout.activity_orders);
         cartbutton = findViewById(R.id.cart_btn);
-        paybtn = findViewById(R.id.paybutton);
+
         cartbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,61 +73,12 @@ public class OrdersActivity extends AppCompatActivity implements PaymentResultLi
 
         TextView textView = findViewById(R.id.tv_date);
         textView.setText(currentDate);
-        paybtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                makepayment();
-            }
-        });
+
 
 
 
     }
 
-    private void makepayment() {
-
-        Checkout checkout = new Checkout();
-        checkout.setKeyID("ZGSlvleWk2TCJ9JWMfYWmVju");
-
-        checkout.setImage(R.drawable.pizzo1);
 
 
-        final Activity activity = this;
-
-
-        try {
-            JSONObject options = new JSONObject();
-
-            options.put("name", "Pizzo");
-            options.put("description", "Reference No. #123456");
-            options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.jpg");
-            //options.put("order_id", "order_DBJOWzybf0sJbb");//from response of step 3.
-            options.put("theme.color", "#3399cc");
-            options.put("currency", "INR");
-            options.put("amount", "50000");//pass amount in currency subunits
-            options.put("prefill.email", "gaurav.kumar@example.com");
-            options.put("prefill.contact","6263965894");
-            JSONObject retryObj = new JSONObject();
-            retryObj.put("enabled", true);
-            retryObj.put("max_count", 4);
-            options.put("retry", retryObj);
-
-            checkout.open(activity, options);
-
-        } catch(Exception e) {
-            Log.e("TAG", "Error in starting Razorpay Checkout", e);
-        }
-    }
-
-
-    @Override
-    public void onPaymentSuccess(String s) {
-        Toast.makeText(this, "Successfull Payment"+s, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onPaymentError(int i, String s) {
-
-        Toast.makeText(this, "Failed Payment"+s, Toast.LENGTH_SHORT).show();
-    }
 }
