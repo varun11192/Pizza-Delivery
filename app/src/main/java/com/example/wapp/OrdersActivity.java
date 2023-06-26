@@ -30,15 +30,14 @@ TextView ordernotv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String id = String.valueOf(getIntent().getExtras());
         Checkout.preload(getApplicationContext());
 
-        cart_btn = findViewById(R.id.cart_btn);
 
 
         setContentView(R.layout.activity_orders);
+        cart_btn = findViewById(R.id.cart_btn);
         ordernotv = findViewById(R.id.ordernotv);
-        cartbutton = findViewById(R.id.cart_btn);
+
         paybtn = findViewById(R.id.paybutton);
         cart_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,14 +46,14 @@ TextView ordernotv;
                 startActivity(intent);
             }
         });
-        cartbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), SummaryActivity.class);
-                startActivity(i);
-                setContentView(R.layout.activity_summary);
-            }
-        });
+//        cartbutton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(getApplicationContext(), SummaryActivity.class);
+//                startActivity(i);
+//                setContentView(R.layout.activity_summary);
+//            }
+//        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.orders);

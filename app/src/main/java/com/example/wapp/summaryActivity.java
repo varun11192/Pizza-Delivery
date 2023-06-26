@@ -22,25 +22,27 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SummaryActivity extends AppCompatActivity {
+public class summaryActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
-    private List<Item> itemList;
+    String userId;
+    private List<SummaryItem> itemList;
     private SummaryItemAdapter summaryItemAdapter;
-    private RecyclerView summaryRecyclerView;
+    private RecyclerView summary_recyclerview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_summary);
+        setContentView(R.layout.activity_summary2);
 
         mAuth = FirebaseAuth.getInstance();
+        userId=mAuth.getCurrentUser().getUid();
         firestore = FirebaseFirestore.getInstance();
         itemList = new ArrayList<>();
         summaryItemAdapter = new SummaryItemAdapter(itemList);
-        summaryRecyclerView = findViewById(R.id.summary_recycler_view);
-        summaryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        summaryRecyclerView.setAdapter(summaryItemAdapter);
+        summary_recyclerview = findViewById(R.id.summary_recyclerview);
+        summary_recyclerview.setLayoutManager(new LinearLayoutManager(this));
+        summary_recyclerview.setAdapter(summaryItemAdapter);
 
         // Fetch user orders
         String userId = mAuth.getCurrentUser().getUid();
@@ -60,13 +62,14 @@ public class SummaryActivity extends AppCompatActivity {
                     String name = document.getString("name");
                     double price = document.getDouble("price");
                     String status = document.getString("status");
-                    String imageString = document.getString("image");
-
-                    // Convert the Base64 string to a byte array
-                    byte[] imageBytes = Base64.decode(imageString, Base64.DEFAULT);
+                    String imageString = document.getString("imageBytes");
+                    byte[] imageBytes = null;
+                    if (imageString != null && !imageString.isEmpty()) {
+                        imageBytes = Base64.decode(imageString, Base64.DEFAULT);
+                    }
 
                     Log.d(TAG, "Fetched Image: " + Arrays.toString(imageBytes));
-                    Item item = new Item(orderId, itemId, name, price, status, imageBytes);
+                    SummaryItem item = new SummaryItem(orderId, itemId, name, price, status, imageBytes);
                     itemList.add(item);
                     Log.d(TAG, "Fetched Item: " + item.toString());
                     Log.d(TAG, "Fetched Image: " + Arrays.toString(item.getImageBytes()));

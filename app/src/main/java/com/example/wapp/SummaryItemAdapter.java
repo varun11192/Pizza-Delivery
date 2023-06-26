@@ -1,5 +1,6 @@
 package com.example.wapp;
 
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,53 +15,53 @@ import com.example.wapp.adapter.Item;
 
 import java.util.List;
 import java.util.Locale;
+public class SummaryItemAdapter extends RecyclerView.Adapter<SummaryItemAdapter.ViewHolder> {
 
-public class SummaryItemAdapter extends RecyclerView.Adapter<SummaryItemAdapter.SummaryItemViewHolder> {
-    private List<Item> itemList;
+    private List<SummaryItem> summaryItemList;
 
-    public SummaryItemAdapter(List<Item> itemList) {
-        this.itemList = itemList;
+    public SummaryItemAdapter(List<SummaryItem> summaryItemList) {
+        this.summaryItemList = summaryItemList;
     }
 
     @NonNull
     @Override
-    public SummaryItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.summary_item_row, parent, false);
-        return new SummaryItemViewHolder(itemView);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.summary_item_row, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SummaryItemViewHolder holder, int position) {
-        Item item = itemList.get(position);
-        holder.bind(item);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        SummaryItem summaryItem = summaryItemList.get(position);
+
+        holder.item_name.setText(summaryItem.getName());
+        holder.item_price.setText(String.valueOf(summaryItem.getPrice()));
+        holder.item_status.setText(summaryItem.getStatus());
+
+        // Set the image byte array to the ImageView
+        byte[] imageBytes = summaryItem.getImageBytes();
+
+        Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+        holder.item_image.setImageBitmap(bitmap);
     }
 
     @Override
     public int getItemCount() {
-        return itemList.size();
+        return summaryItemList.size();
     }
 
-    public class SummaryItemViewHolder extends RecyclerView.ViewHolder {
-        private ImageView itemImageView;
-        private TextView nameTextView;
-        private TextView priceTextView;
-        private TextView statusTextView;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView item_name;
+        public TextView item_price;
+        public TextView item_status;
+        public ImageView item_image;
 
-        public SummaryItemViewHolder(@NonNull View itemView) {
-            super(itemView);
-            itemImageView = itemView.findViewById(R.id.item_image);
-            nameTextView = itemView.findViewById(R.id.item_name);
-            priceTextView = itemView.findViewById(R.id.item_price);
-            statusTextView = itemView.findViewById(R.id.item_status);
-        }
-
-        public void bind(Item item) {
-            // Set the item data to the views
-            itemImageView.setImageBitmap(BitmapFactory.decodeByteArray(item.getImageBytes(), 0, item.getImageBytes().length));
-            nameTextView.setText(item.getName());
-            priceTextView.setText(String.format(Locale.getDefault(), "Price: $%.2f", item.getPrice()));
-            statusTextView.setText("Status: " + item.getStatus());
+        public ViewHolder(View view) {
+            super(view);
+            item_name = view.findViewById(R.id.item_name);
+            item_price = view.findViewById(R.id.item_price);
+            item_status = view.findViewById(R.id.item_status);
+            item_image = view.findViewById(R.id.item_image);
         }
     }
 }
-
