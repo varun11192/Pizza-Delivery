@@ -24,7 +24,7 @@ import java.util.Map;
 public class ProfileUpdate extends AppCompatActivity {
 
     private EditText nameEt, mobileEt, emailEt, addressEt;
-    private Button updateBtn;
+    private Button updateBtn, backBtn;
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private FirebaseUser user;
 
@@ -38,7 +38,14 @@ public class ProfileUpdate extends AppCompatActivity {
         emailEt = findViewById(R.id.email_et);
         addressEt = findViewById(R.id.cnf_new_pass_et);
         updateBtn = findViewById(R.id.updateBtn);
+        backBtn = findViewById(R.id.backBtn);
 
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

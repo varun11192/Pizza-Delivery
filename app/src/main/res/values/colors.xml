@@ -22,6 +22,7 @@
     <color name="received">#413269</color>
     <color name="textColorPrimary">#212121</color>
     <color name="textColorSecondary">#757575</color>
+    <color name="successGreen">#51D161</color>
 
         <color name="text_color">#1E4175</color>
         <color name="background_color">#ecf0f3</color>

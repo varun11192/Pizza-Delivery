@@ -22,12 +22,23 @@
             app:layout_constraintBottom_toBottomOf="@id/scroolView"
             >
 
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_arrow_back_24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/personalInfoTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="16dp"
                 android:text="Personal Information"
                 android:textColor="@color/black"
                 android:textSize="20sp"
@@ -35,7 +46,7 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/backBtn" />
 
             <TextView
                 android:id="@+id/fullNameTitle"
@@ -159,6 +170,7 @@
         android:textSize="18sp"
         android:padding="16dp"
         android:textColor="@color/white"
+        android:background="@drawable/rounded_button"
         android:backgroundTint="#E81514"
         app:layout_constraintTop_toBottomOf="@id/scroolView"
         app:layout_constraintLeft_toLeftOf="parent"
