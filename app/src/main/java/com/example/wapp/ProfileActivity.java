@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,16 +27,20 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    TextView nameEditTxt, contactEditTxt, nameTv, mobileTv, emailTv, addressTv, nameBigTv;
+    TextView  nameTv, mobileTv, emailTv, addressTv, nameBigTv;
     FirebaseAuth auth;
     FirebaseFirestore firebaseFirestore;
     FirebaseUser firebaseUser;
+
+    Button nameEditTxt, contactEditTxt;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        Toast.makeText(this, "Please update your personal details.", Toast.LENGTH_SHORT).show();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.profile);

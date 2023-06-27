@@ -12,64 +12,70 @@
         android:id="@+id/ordertv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thanks for ordering from Pizzo!"
-        android:textColor="@color/black"
+        android:layout_marginTop="62dp"
+        android:text="Thank You for ordering from Pizzo"
+        android:textColor="@color/successGreen"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="62dp"
-        android:layout_marginLeft="16dp"/>
-
-    <TextView
-        android:id="@+id/ordernotv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your Order No. 12"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ordertv" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/statustv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="8dp"
         android:text="Status : Preparing"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ordernotv"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ordertv" />
 
     <TextView
         android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Date"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ordernotv" />
+        app:layout_constraintTop_toBottomOf="@+id/statustv" />
+
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:padding="8dp"
+        android:gravity="center"
+        android:text="Kindly check Order Summary to know the realtime status of your order."
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cart_btn" />
 
     <Button
         android:id="@+id/cart_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="464dp"
-        android:background="@color/red"
+        android:background="@drawable/rounded_corner"
         android:gravity="center"
-        android:padding="6sp"
+        android:padding="6dp"
         android:text="Order Summary"
+        android:elevation="2dp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

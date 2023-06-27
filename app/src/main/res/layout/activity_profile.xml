@@ -181,14 +181,14 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1" />
 
-                            <TextView
+                            <Button
                                 android:id="@+id/nameEditBtn"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="10dp"
-                                android:fontFamily="@font/proximanovaregular"
                                 android:text="Edit"
-                                android:textColor="#E4B056"
+                                android:background="@drawable/rounded_button"
+                                android:textColor="@color/white"
                                 android:textSize="14sp" />
                         </LinearLayout>
 
@@ -229,12 +229,13 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1" />
 
-                        <TextView
+                        <Button
                             android:id="@+id/contactEdit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Edit"
-                            android:textColor="#E4B056"
+                            android:background="@drawable/rounded_button"
+                            android:textColor="@color/white"
                             android:layout_marginEnd="10dp"
                             android:textSize="14sp" />
                     </LinearLayout>

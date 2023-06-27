@@ -7,7 +7,6 @@
     android:paddingRight="32dp"
     android:paddingLeft="32dp"
     android:elevation="3dp"
-    android:background="@drawable/rounded_background"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
