@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +42,10 @@ public class AuthenticationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final dialog loadingdialog = new dialog(AuthenticationActivity.this);
+
+
+
         if(getSupportActionBar()!= null){
             getSupportActionBar().hide();
         }
@@ -68,8 +73,19 @@ public class AuthenticationActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(edtPhone.getText().toString())) {
                     Toast.makeText(AuthenticationActivity.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
                 } else {
+
                     String phone = "+91" + edtPhone.getText().toString();
                     sendVerificationCode(phone);
+
+                    loadingdialog.startLoadingdialog();
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadingdialog.dismissdialog();
+                        }
+                    }, 5000);
                 }
             }
         });
@@ -80,7 +96,17 @@ public class AuthenticationActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(edtOTP.getText().toString())) {
                     Toast.makeText(AuthenticationActivity.this, "Please enter OTP", Toast.LENGTH_SHORT).show();
                 } else {
+                    loadingdialog.startLoadingdialog();
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadingdialog.dismissdialog();
+                        }
+                    }, 5000);
                     verifyCode(edtOTP.getText().toString());
+
                     Intent intent = new Intent(AuthenticationActivity.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
