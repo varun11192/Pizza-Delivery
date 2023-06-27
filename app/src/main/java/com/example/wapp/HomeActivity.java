@@ -47,15 +47,27 @@ public class HomeActivity extends AppCompatActivity {
 
         final dialog loadingdialog = new dialog(HomeActivity.this);
 
-        loadingdialog.startLoadingdialog();
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getBoolean("isFirstRun", true);
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadingdialog.dismissdialog();
-            }
-        }, 4000);
+        if (isFirstRun) {
+            //show loading dialog
+            loadingdialog.startLoadingdialog();
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadingdialog.dismissdialog();
+                }
+            }, 4000);
+        }
+
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putBoolean("isFirstRun", false).commit();
+
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.bottom_home);
